@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>Xudbin Kalkulyator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">X</div>
+        <div>
+          <h1>XUDBIN<span>.</span></h1>
+          <p>O‘zingni bos, men hisoblayman 😎</p>
+        </div>
+      </div>
+      <div class="status">
+        <span class="status-dot"></span>
+        KAYFIYAT: <b id="mood">AJOYIB</b>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="robot" id="robot">
+        <div class="robot-antenna"></div>
+        <div class="robot-head">
+          <div class="robot-ear ear-left"></div>
+          <div class="robot-ear ear-right"></div>
+          <div class="robot-brow"></div>
+          <div class="robot-eyes">
+            <span class="eye"></span>
+            <span class="eye"></span>
+          </div>
+          <div class="robot-mouth"></div>
+        </div>
+        <div class="robot-neck"></div>
+        <div class="robot-body">
+          <span class="body-light"></span>
+          <span class="body-text">BOSS AI</span>
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <span class="eyebrow">SUN’IY INTELLEKT · EGO 100%</span>
+        <h2>Men oddiy<br><span>kalkulyator emasman.</span></h2>
+        <p id="robotIntro">Men bilan gaplashishdan oldin odobni o‘rgan. Qani, biror narsa hisoblat-chi!</p>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="calculator panel">
+        <div class="panel-heading">
+          <div>
+            <span class="section-tag">01 / HISOBLASH</span>
+            <h3>Matematik panel</h3>
+          </div>
+          <button class="icon-button" id="clearBtn" title="Tozalash" aria-label="Tozalash">AC</button>
+        </div>
+
+        <label class="input-label" for="expression">Nimani hisoblab beray?</label>
+        <input
+          id="expression"
+          type="text"
+          placeholder="Masalan: 25 * 4"
+          autocomplete="off"
+          spellcheck="false"
+        >
+
+        <div class="keypad" id="keypad">
+          <button data-key="7">7</button>
+          <button data-key="8">8</button>
+          <button data-key="9">9</button>
+          <button data-key="/" class="operator">÷</button>
+
+          <button data-key="4">4</button>
+          <button data-key="5">5</button>
+          <button data-key="6">6</button>
+          <button data-key="*" class="operator">×</button>
+
+          <button data-key="1">1</button>
+          <button data-key="2">2</button>
+          <button data-key="3">3</button>
+          <button data-key="-" class="operator">−</button>
+
+          <button data-key="(" class="special">(</button>
+          <button data-key="0">0</button>
+          <button data-key=")" class="special">)</button>
+          <button data-key="+" class="operator">+</button>
+
+          <button data-key="." class="special">.</button>
+          <button data-key="backspace" class="special">⌫</button>
+          <button data-key="%" class="special">%</button>
+          <button data-key="enter" class="equals">=</button>
+        </div>
+
+        <div class="please-area">
+          <label for="pleaseInput">Avval odobni ko‘rsat! 😏</label>
+          <div class="please-row">
+            <input id="pleaseInput" type="text" placeholder="Bu yerga «iltimos» yoz..." autocomplete="off">
+            <button id="pleaseBtn">🙏 Iltimos</button>
+          </div>
+          <p class="hint">Maslahat: «iltimos» so‘zi bo‘lmasa, janob Xudbin ishlamaydi.</p>
+        </div>
+
+        <button id="calculateBtn" class="main-button">
+          <span>Hisoblab ber, iltimos!</span>
+          <span>↗</span>
+        </button>
+      </div>
+
+      <div class="side-column">
+        <section class="panel conversation">
+          <div class="panel-heading">
+            <div>
+              <span class="section-tag">02 / ROBOT BILAN SUHBAT</span>
+              <h3>Janob Xudbin</h3>
+            </div>
+            <span class="live-badge">JONLI</span>
+          </div>
+
+          <div class="chat-message">
+            <div class="mini-avatar">X</div>
+            <div class="message-content">
+              <span class="speaker">XUDBIN BOT</span>
+              <p id="botMessage" aria-live="polite">Salom! Men juda aqlliman. Aytgancha, maqtashni unutma. 😎</p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <span class="answer-label">MENING JAVOBIM</span>
+            <div id="answer" aria-live="polite">???</div>
+            <p id="answerNote">Hali hech narsa hisoblamadim.</p>
+          </div>
+
+          <div class="riddle-box" id="riddleBox" hidden>
+            <span class="section-tag">🧩 MAXFIY TOPISHMOQ</span>
+            <p id="riddleQuestion"></p>
+            <div class="riddle-row">
+              <input id="riddleAnswer" type="text" placeholder="Javobingni yoz..." autocomplete="off">
+              <button id="riddleBtn">Tekshir</button>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <button id="riddleStartBtn">🧩 Topishmoq</button>
+            <button id="truthBtn">🔎 Rostini ayt!</button>
+          </div>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="section-tag">03 / XOTIRA</span>
+              <h3>Hisoblashlar tarixi</h3>
+            </div>
+            <button id="historyClearBtn" class="text-button">Tozalash</button>
+          </div>
+          <div id="history" class="history-list">
+            <p class="empty-history">Hali tarix bo‘sh. Ish boshlashga erinib turibman. 😴</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-line"></div>
+      <p>LOYIHA MUALLIFI</p>
+      <h3>AKRAMJONOVA <span>JADRA MARATOVNA</span></h3>
+      <small>© <span id="year"></span> XUDBIN KALKULYATOR · Barcha huquqlar himoyalangan</small>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
